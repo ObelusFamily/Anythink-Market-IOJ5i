@@ -4,6 +4,9 @@ The Anythink Frontend is an SPA written with [React](https://reactjs.org/) and [
 
 ## Getting started
 
+Create a file called .env.local in the root frontend directory and use .env.template to configure your environment.
+Specifically make sure PORT points to a port different from the backend. By default, use port 3001 
+
 To start the app use: `./start.sh` from the frontend directory.
 
 Make sure your server is up and running to serve requests.
