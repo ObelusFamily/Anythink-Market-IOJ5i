@@ -30,7 +30,7 @@ const randomStr = (length = 24) => {
 
 };
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 1000; i += 1) {
     seedUsers.push({
         role: 'user',
         favorites: [],
