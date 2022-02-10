@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 require("../models/User");
 require("../models/Item");
+require('dotenv').config()
 
 const User = mongoose.model("User");
 const Item = mongoose.model("Item");
 
-mongoose.connect("mongodb://127.0.0.1", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("Mongo connected!")
