@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 require("../models/User");
 require("../models/Item");
+require("../models/Comment");
 require('dotenv').config()
 
 const User = mongoose.model("User");
 const Item = mongoose.model("Item");
+const Comment = mongoose.model("Comment");
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true})
@@ -47,6 +49,7 @@ for (let i = 0; i < 1000; i += 1) {
 }
 
 const seedDB = async () => {
+    await Comment.deleteMany({})
     await Item.deleteMany({})
     await User.deleteMany({})
 
@@ -68,7 +71,20 @@ const seedDB = async () => {
         })
     }
 
-    await Item.insertMany(seedItems)
+    const itemsData = await Item.insertMany(seedItems)
+
+    const seedComments = []
+
+    for (const item of itemsData) {
+        seedComments.push({
+            body: `this is a comment for item with title ${item.title}`,
+            seller: item.seller,
+            item: item.id
+        })
+    }
+
+    await Comment.insertMany(seedComments)
+
 }
 
 seedDB().then(() => {
