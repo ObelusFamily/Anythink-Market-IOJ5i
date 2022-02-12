@@ -36,7 +36,7 @@ const randomStr = (length = 24) => {
   return str;
 };
 
-for (let i = 0; i < 1000; i += 1) {
+for (let i = 0; i < 100; i += 1) {
   seedUsers.push({
     role: "user",
     favorites: [],
@@ -62,8 +62,8 @@ const seedDB = async () => {
   for (const user of usersData) {
     seedItems.push({
       slug: `item_${user.id}`,
-      title: `Item Title ${user.id}`,
-      description: `Item description ${user.id}`,
+      title: `title`,
+      description: `description`,
       image: "",
       favoritesCount: 0,
       comments: [],
