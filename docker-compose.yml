@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  anything-backend:
+  anythink-backend:
     build: ./backend
     container_name: anything-backend
     command: sh -c "cd backend && yarn install && yarn dev"
@@ -15,7 +15,7 @@ services:
     depends_on:
       - mongodb
 
-  anything-frontend:
+  anythink-frontend:
     build: ./frontend
     container_name: anything-frontend
     command: sh -c "cd frontend && yarn install && yarn start"
